@@ -13,6 +13,7 @@ const Onboarding = () => {
 
   React.useEffect(() => {
     setTimeout(() => {
+      // Navigate to home screen on timeout
       navigation.navigate("Home");
     }, 2000);
   }, []);
