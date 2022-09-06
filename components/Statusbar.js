@@ -4,6 +4,6 @@ import { StatusBar } from "expo-status-bar";
 
 export default function Statusbar() {
   return (
-    <StatusBar style="light" translucent={false} backgroundColor={"#0f172a"} />
+    <StatusBar style="light" translucent={false} backgroundColor={"#111827"} />
   );
 }
