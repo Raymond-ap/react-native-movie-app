@@ -16,14 +16,8 @@ export default function App() {
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen name="Onboarding" component={Onboarding} />
-            <Stack.Group
-              screenOptions={{
-                presentation: "modal",
-                animation: "slide_from_bottom",
-              }}
-            >
-              <Stack.Screen name="Home" component={HomeScreen} />
-            </Stack.Group>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Group></Stack.Group>
           </Stack.Navigator>
         </AuthProvider>
       </NavigationContainer>
