@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     axios
       .request(episodeOptions)
       .then(function (response) {
-        setEpisodes(response.data.results[0]);
+        setEpisodes(response.data.results);
         setLoading(false);
       })
       .catch((error) => {

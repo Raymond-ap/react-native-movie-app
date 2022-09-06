@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView className="flex-1 bg-gray-900">
+    <SafeAreaView className="flex-1 bg-white">
       <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
         <SearchInput />
@@ -18,7 +18,7 @@ const HomeScreen = () => {
 
 const SearchInput = () => {
   return (
-    <View className="my-3 bg-gray-600 px-2 py-1 mx-4 rounded-md flex-row items-center">
+    <View className="my-3 bg-gray-300 px-2 py-1 mx-4 rounded-md flex-row items-center">
       <Ionicons name="search" size={20} color="gray" />
       <TextInput
         placeholder="Search Movies"
