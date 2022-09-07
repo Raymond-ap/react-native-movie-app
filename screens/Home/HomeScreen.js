@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, TextInput, ScrollView } from "react-native";
 import React, { useState, useEffect } from "react";
-import { Header, Statusbar, MovieSeries } from "../../components";
+import { Header, Statusbar } from "../../components";
 import { Ionicons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
@@ -9,7 +9,6 @@ const HomeScreen = () => {
       <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
         <SearchInput />
-        <MovieSeries />
       </ScrollView>
       <Statusbar />
     </SafeAreaView>

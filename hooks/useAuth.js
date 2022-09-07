@@ -6,8 +6,7 @@ import React, {
   useState,
   useCallback,
 } from "react";
-import { X_RapidAPI_Key, X_RapidAPI_Host } from "@env";
-import route from "../routes";
+import { route } from "../routes";
 import axios from "axios";
 
 const AuthContext = createContext({});
@@ -18,27 +17,30 @@ const wait = (timeout) => {
 
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [episodes, setEpisodes] = useState([]);
-
-  const episodeOptions = {
-    method: "GET",
-    url: route.episodes,
-    headers: {
-      "X-RapidAPI-Key": X_RapidAPI_Key,
-      "X-RapidAPI-Host": X_RapidAPI_Host,
-    },
-  };
+  const [nowPlaying, setNowPlaying] = useState([]);
+  const [popular, setPopular] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
+  const [trending, setTrending] = useState([]);
 
   const getData = async () => {
-    axios
-      .request(episodeOptions)
-      .then(function (response) {
-        setEpisodes(response.data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-      });
+    try {
+      const nowPlaying = await axios.get(route.now_playing);
+      const popular = await axios.get(route.popular);
+      const topRated = await axios.get(route.top_rated);
+      const upcoming = await axios.get(route.upcoming);
+      const trending = await axios.get(route.trending);
+      setNowPlaying(nowPlaying.data.results);
+      setPopular(popular.data.results);
+      setTopRated(topRated.data.results);
+      setUpcoming(upcoming.data.results);
+      setTrending(trending.data.results);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onRefresh = useCallback(() => {
@@ -52,10 +54,14 @@ export const AuthProvider = ({ children }) => {
 
   const memoedValue = useMemo(
     () => ({
-      episodes,
+      nowPlaying,
+      popular,
+      topRated,
+      upcoming,
+      trending,
       loading,
     }),
-    [episodes, loading]
+    [nowPlaying, popular, topRated, upcoming, trending, loading]
   );
   return (
     <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>
