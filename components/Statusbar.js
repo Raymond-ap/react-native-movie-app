@@ -2,8 +2,10 @@ import { View, Text } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 
-export default function Statusbar() {
+const AppStatusbar = ({style, translucent, backgroundColor}) => {
   return (
-    <StatusBar style="dark" translucent={false} backgroundColor={"#fff"} />
+    <StatusBar style={style} translucent={translucent} backgroundColor={backgroundColor} />
   );
 }
+
+export default AppStatusbar;
