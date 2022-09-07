@@ -1,17 +1,10 @@
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  SafeAreaView,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, ImageBackground, SafeAreaView, TouchableOpacity } from "react-native";
 import React from "react";
 import AppStatusbar from "./Statusbar";
 import { LinearGradient } from "expo-linear-gradient";
 import useAuth from "../hooks/useAuth";
 import { truncate } from "../utils";
-import { AntDesign } from "@expo/vector-icons";
+import {AntDesign} from '@expo/vector-icons';
 
 const Header = () => {
   const { nowPlaying } = useAuth();
@@ -47,23 +40,13 @@ const Header = () => {
                 {truncate(movie.overview, 79)}
               </Text>
               <View className="flex-row items-center gap-3">
-                <TouchableOpacity
-                  activeOpacity={0.9}
-                  className="bg-green-500 w-20 items-center justify-center flex-row py-2 rounded-full"
-                >
+                <TouchableOpacity activeOpacity={0.9} className="bg-green-500 w-20 items-center justify-center flex-row py-2 rounded-full">
                   <AntDesign name="play" size={15} color="white" />
-                  <Text className="ml-2 text-white text-sm font-bold">
-                    Play
-                  </Text>
+                    <Text className="ml-2 text-white text-sm font-bold">Play</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                  activeOpacity={0.9}
-                  className="border-2 border-white w-24 items-center justify-center flex-row py-2 rounded-full"
-                >
+                <TouchableOpacity activeOpacity={0.9} className="border-2 border-white w-24 items-center justify-center flex-row py-2 rounded-full">
                   <AntDesign name="plus" size={15} color="white" />
-                  <Text className="ml-2 text-white text-sm font-bold">
-                    My list
-                  </Text>
+                    <Text className="ml-2 text-white text-sm font-bold">My list</Text>
                 </TouchableOpacity>
               </View>
             </View>

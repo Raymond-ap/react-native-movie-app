@@ -1,4 +1,4 @@
-import Statusbar from "./Statusbar";
+import AppStatusbar from "./Statusbar";
 import Header from "./Header";
 
-export { Statusbar, Header };
+export { AppStatusbar, Header };

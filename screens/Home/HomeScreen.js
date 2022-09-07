@@ -5,12 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-neutral-900">
       <Header />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <SearchInput />
-      </ScrollView>
-      <Statusbar />
     </SafeAreaView>
   );
 };
