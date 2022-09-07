@@ -1,6 +1,6 @@
 import { API_KEY } from "@env";
 export const baseUrl = "https://api.themoviedb.org/3";
-export const imageUrl = "https://api.themoviedb.org/3/movie";
+export const imageUrl = "https://image.tmdb.org/t/p/original";
 
 export const route = {
   now_playing: `${baseUrl}/movie/now_playing?api_key=${API_KEY}&language=en-US`,
