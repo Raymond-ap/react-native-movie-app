@@ -1,4 +1,5 @@
 import AppStatusbar from "./Statusbar";
 import Header from "./Header";
+import FeaturedRow from './FeaturedRow'
 
-export { AppStatusbar, Header };
+export { AppStatusbar, Header, FeaturedRow };

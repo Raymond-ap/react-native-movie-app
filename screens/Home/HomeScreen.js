@@ -1,12 +1,18 @@
 import { View, Text, SafeAreaView, TextInput, ScrollView } from "react-native";
 import React, { useState, useEffect } from "react";
-import { Header, Statusbar } from "../../components";
+import { FeaturedRow, Header, Statusbar } from "../../components";
 import { Ionicons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-neutral-900">
-      <Header />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Header />
+        <FeaturedRow lable={"upcoming"} />
+        <FeaturedRow lable={"trending"} />
+        <FeaturedRow lable={"popular"} />
+        <FeaturedRow lable={"top rated"} />
+      </ScrollView>
     </SafeAreaView>
   );
 };
