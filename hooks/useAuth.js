@@ -60,8 +60,9 @@ export const AuthProvider = ({ children }) => {
       upcoming,
       trending,
       loading,
+      onRefresh
     }),
-    [nowPlaying, popular, topRated, upcoming, trending, loading]
+    [nowPlaying, popular, topRated, upcoming, trending, loading, onRefresh]
   );
   return (
     <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>
