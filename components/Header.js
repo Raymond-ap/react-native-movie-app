@@ -32,10 +32,10 @@ const Header = () => {
         source={{
           uri: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
         }}
-        className="px-4 py-2 object-cover h-80"
+        className="px-4 py-2 object-cover h-96"
       >
         <LinearGradient
-          colors={["rgba(0,0,0,0.2)", "rgba(0,0,0,0.9)"]}
+          colors={["rgba(0,0,0,0.5)", "rgba(0,0,0,1)"]}
           className="absolute inset-0"
         >
           <SafeAreaView className="w-full absolute bottom-3">
