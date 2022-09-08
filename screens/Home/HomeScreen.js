@@ -1,18 +1,30 @@
-import { View, Text, SafeAreaView, TextInput, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import { FeaturedRow, Header, Movie, Statusbar } from "../../components";
 import { Ionicons } from "@expo/vector-icons";
 import useAuth from "../../hooks/useAuth";
 
 const HomeScreen = () => {
-  const { popular, topRated, trending, upcoming } = useAuth();
+  const { popular, topRated, trending, upcoming, loading } = useAuth();
+  if (loading) {
+    <SafeAreaView className="flex-1 bg-black grid items-center justify-center">
+      <ActivityIndicator size={"large"} color={"white"} />
+    </SafeAreaView>;
+  }
   return (
     <SafeAreaView className="flex-1 bg-black">
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
         <FeaturedRow lable={"upcoming"} render={<Movie data={upcoming} />} />
         <FeaturedRow lable={"trending"} render={<Movie data={trending} />} />
-        <FeaturedRow lable={"popular"} render={<Movie data={popular}/>} />
+        <FeaturedRow lable={"popular"} render={<Movie data={popular} />} />
         <FeaturedRow lable={"top rated"} render={<Movie data={topRated} />} />
       </ScrollView>
     </SafeAreaView>
