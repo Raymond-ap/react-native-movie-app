@@ -1,7 +1,9 @@
 import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Movie = ({ data }) => {
+  const navigation = useNavigation();
   return (
     <FlatList
       data={data.slice(0, 15)}
@@ -9,7 +11,11 @@ const Movie = ({ data }) => {
       showsHorizontalScrollIndicator={false}
       keyExtractor={(_, index) => index.toString()}
       renderItem={({ item }) => (
-        <TouchableOpacity activeOpacity={0.9} className="h-48 w-32 mx-2">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("MovieDeatil", { movie: item })}
+          activeOpacity={0.9}
+          className="h-48 w-32 mx-2"
+        >
           <Image
             source={{
               uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
