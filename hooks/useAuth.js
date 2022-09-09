@@ -17,6 +17,7 @@ const wait = (timeout) => {
 
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [nowPlaying, setNowPlaying] = useState([]);
   const [popular, setPopular] = useState([]);
   const [topRated, setTopRated] = useState([]);
@@ -44,8 +45,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const onRefresh = useCallback(() => {
+    setRefreshing(true)
     getData();
-    wait(2000).then(() => setLoading(false));
+    wait(2000).then(() => setRefreshing(false));
   }, []);
 
   useEffect(() => {
@@ -60,9 +62,10 @@ export const AuthProvider = ({ children }) => {
       upcoming,
       trending,
       loading,
-      onRefresh
+      onRefresh,
+      refreshing
     }),
-    [nowPlaying, popular, topRated, upcoming, trending, loading, onRefresh]
+    [nowPlaying, popular, topRated, upcoming, trending, loading, onRefresh, refreshing]
   );
   return (
     <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>
