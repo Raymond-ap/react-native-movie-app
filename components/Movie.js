@@ -12,7 +12,7 @@ const Movie = ({ data }) => {
       keyExtractor={(_, index) => index.toString()}
       renderItem={({ item }) => (
         <TouchableOpacity
-          onPress={() => navigation.navigate("MovieDeatil", { movie: item })}
+          onPress={() => navigation.navigate("MovieDeatil", { id: item.id })}
           activeOpacity={0.9}
           className="h-48 w-32 mx-2"
         >
