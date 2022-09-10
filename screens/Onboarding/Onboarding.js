@@ -7,16 +7,18 @@ import {
 import React, { useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import useAuth from "../../hooks/useAuth";
 
 const Onboarding = () => {
   const navigation = useNavigation();
+  const { loading } = useAuth();
 
   React.useEffect(() => {
+    // Navigate to home screen when loading is done
     setTimeout(() => {
-      // Navigate to home screen on timeout
       navigation.navigate("Home");
-    }, 2000);
-  }, []);
+    }, 3000);
+  }, [loading]);
 
   return (
     <ImageBackground
