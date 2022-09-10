@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const onRefresh = useCallback(() => {
-    setRefreshing(true)
+    setRefreshing(true);
     getData();
     wait(2000).then(() => setRefreshing(false));
   }, []);
@@ -56,16 +56,25 @@ export const AuthProvider = ({ children }) => {
 
   const memoedValue = useMemo(
     () => ({
+      loading,
       nowPlaying,
       popular,
       topRated,
       upcoming,
       trending,
-      loading,
       onRefresh,
-      refreshing
+      refreshing,
     }),
-    [nowPlaying, popular, topRated, upcoming, trending, loading, onRefresh, refreshing]
+    [
+      loading,
+      nowPlaying,
+      popular,
+      topRated,
+      upcoming,
+      trending,
+      onRefresh,
+      refreshing,
+    ]
   );
   return (
     <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>

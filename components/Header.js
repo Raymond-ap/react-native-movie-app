@@ -30,7 +30,7 @@ const Header = () => {
     <>
       <ImageBackground
         source={{
-          uri: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
+          uri: `https://image.tmdb.org/t/p/original${movie?.poster_path}`,
         }}
         className="px-4 py-2 object-cover h-96"
       >
@@ -41,10 +41,10 @@ const Header = () => {
           <SafeAreaView className="w-full absolute bottom-3">
             <View className="mx-4">
               <Text className="text-white text-2xl font-bold">
-                {truncate(movie.title, 29)}
+                {truncate(movie?.title, 29)}
               </Text>
               <Text className="text-gray-100 text-sm font-bold mb-2">
-                {truncate(movie.overview, 79)}
+                {truncate(movie?.overview, 79)}
               </Text>
               <View className="flex-row items-center gap-3">
                 <TouchableOpacity
