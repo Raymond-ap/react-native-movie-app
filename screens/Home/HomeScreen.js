@@ -11,8 +11,10 @@ import React, { useState, useEffect } from "react";
 import { FeaturedRow, Header, Movie, Statusbar } from "../../components";
 import { Ionicons } from "@expo/vector-icons";
 import useAuth from "../../hooks/useAuth";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   const {
     popular,
     topRated,
@@ -36,10 +38,46 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         <Header />
-        <FeaturedRow lable={"upcoming"} render={<Movie data={upcoming} />} />
-        <FeaturedRow lable={"trending"} render={<Movie data={trending} />} />
-        <FeaturedRow lable={"popular"} render={<Movie data={popular} />} />
-        <FeaturedRow lable={"top rated"} render={<Movie data={topRated} />} />
+        <FeaturedRow
+          lable={"upcoming"}
+          render={<Movie data={upcoming} />}
+          onPress={() =>
+            navigation.navigate("Listing", {
+              data: upcoming,
+              category: "upcoming",
+            })
+          }
+        />
+        <FeaturedRow
+          lable={"trending"}
+          render={<Movie data={trending} />}
+          onPress={() =>
+            navigation.navigate("Listing", {
+              data: trending,
+              category: "trending",
+            })
+          }
+        />
+        <FeaturedRow
+          lable={"popular"}
+          render={<Movie data={popular} />}
+          onPress={() =>
+            navigation.navigate("Listing", {
+              data: popular,
+              category: "popular",
+            })
+          }
+        />
+        <FeaturedRow
+          lable={"top rated"}
+          render={<Movie data={topRated} />}
+          onPress={() =>
+            navigation.navigate("Listing", {
+              data: topRated,
+              category: "top rated",
+            })
+          }
+        />
       </ScrollView>
     </SafeAreaView>
   );
