@@ -9,6 +9,7 @@ import {
   FlatList,
   ActivityIndicator,
   StatusBar,
+  Linking,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { AppStatusbar } from "../../components";
@@ -29,6 +30,7 @@ const MovieDeatil = ({ route }) => {
   const [loading, setLoading] = useState(true);
   let movieId = route.params.id;
   let [genres, setGenres] = useState([]);
+  let [languages, setLanguages] = useState([]);
 
   const fetchDetail = async () => {
     try {
@@ -36,7 +38,7 @@ const MovieDeatil = ({ route }) => {
       const result = await response.json();
       setMovie(result);
       setGenres(result.genres);
-      // console.log(result);
+      setLanguages(result.spoken_languages);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -119,11 +121,14 @@ const MovieDeatil = ({ route }) => {
             spoken languages
           </Text>
           <View>
-            {/* {movie?.spoken_languages.map((spoken_language) => (
-              <Text key={spoken_language.english_name} className="text-gray-300 capitalize text-sm mb-1">
-                {spoken_language.english_name}
+            {languages.map((language) => (
+              <Text
+                key={language.english_name}
+                className="text-gray-300 capitalize text-sm mb-1"
+              >
+                {language.english_name}
               </Text>
-            ))} */}
+            ))}
           </View>
         </View>
 
