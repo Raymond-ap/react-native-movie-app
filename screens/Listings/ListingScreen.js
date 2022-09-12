@@ -15,7 +15,7 @@ const ListingScreen = ({ route }) => {
   const { data, category } = route.params;
   return (
     <SafeAreaView className="flex-1 bg-black">
-      <View className="px-4 py-3 bg-black flex-row items-center justify-between">
+      <View className="px-4 py-3  bg-black flex-row items-center justify-between">
         <TouchableOpacity
           activeOpacity={0.9}
           onPress={() => navigation.goBack()}
