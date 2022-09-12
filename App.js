@@ -1,8 +1,9 @@
 import { TailwindProvider } from "tailwindcss-react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer, DarkTheme } from "@react-navigation/native";
-import { Onboarding, HomeScreen, MovieDeatil, ListingScreen } from "./screens";
+import { Onboarding, MovieDeatil, ListingScreen } from "./screens";
 import { AuthProvider } from "./hooks/useAuth";
+import TabNavigator from "./navigation/tabnavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ export default function App() {
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen name="Onboarding" component={Onboarding} />
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Home" component={TabNavigator} />
             <Stack.Screen name="Listing" component={ListingScreen} />
             <Stack.Group>
               <Stack.Screen
