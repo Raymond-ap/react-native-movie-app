@@ -22,7 +22,7 @@ const ListingCard = ({ movie }) => {
           {truncate(movie?.title, 40)}
         </Text>
         <Text className="text-gray-400 text-sm">
-          {truncate(movie?.overview, 100)}
+          {truncate(movie?.overview, 85)}
         </Text>
         <View className="flex-row items-center justify-between mt-1">
           <Text className="text-green-400 text-sm">
