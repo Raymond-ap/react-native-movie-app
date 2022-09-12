@@ -8,4 +8,5 @@ export const route = {
   top_rated: `${baseUrl}/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   upcoming: `${baseUrl}/movie/upcoming?api_key=${API_KEY}&language=en-US`,
   trending: `${baseUrl}/trending/movie/week?api_key=${API_KEY}&language=en-US`,
+  search: `${baseUrl}/search/movie?api_key=${API_KEY}&language=en-US`
 };
