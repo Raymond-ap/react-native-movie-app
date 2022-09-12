@@ -152,6 +152,7 @@ const MovieDeatil = ({ route }) => {
           />
         </View>
       </ScrollView>
+      <AppStatusbar style={"light"} />
     </View>
   );
 };
@@ -177,7 +178,7 @@ const Banner = ({ poster_path }) => {
 const Header = () => {
   const navigation = useNavigation();
   return (
-    <View className="mx-4" style={{ paddingTop: StatusBar.currentHeight + 4 }}>
+    <View className="mx-4" style={{ paddingTop: StatusBar.currentHeight }}>
       <TouchableOpacity activeOpacity={0.9} onPress={() => navigation.goBack()}>
         <Ionicons name="arrow-back" size={30} color="white" />
       </TouchableOpacity>
