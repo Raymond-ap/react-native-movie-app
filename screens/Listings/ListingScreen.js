@@ -30,7 +30,7 @@ const ListingScreen = ({ route }) => {
         showsVerticalScrollIndicator={false}
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item }) => (
-          <View className="py-2">
+          <View className="py-1">
             <ListingCard movie={item} />
           </View>
         )}
